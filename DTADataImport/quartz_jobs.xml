@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 				version="2.0">
+
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+
+  <schedule>
+    
+    <job>
+      <name>ProcessImportJob</name>
+      <group>ProcessImportJobGroup</group>
+      <description>jobDesciption1</description>
+      <job-type>DTADataImport.ProcessImportJob,DTADataImport</job-type>
+      <durable>true</durable>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>key0</key>
+          <value>value0</value>
+        </entry>
+        <entry>
+          <key>key1</key>
+          <value>value1</value>
+        </entry>
+        <entry>
+          <key>key2</key>
+          <value>value2</value>
+        </entry>
+      </job-data-map>
+    </job>
+    
+    <trigger>
+      <cron>
+        <name>simpleName</name>
+        <group>simpleGroup</group>
+        <job-name>ProcessImportJob</job-name>
+        <job-group>ProcessImportJobGroup</job-group>
+        <start-time>2015-01-22T00:00:00+08:00</start-time>
+        <misfire-instruction>DoNothing</misfire-instruction>
+        <cron-expression>0/1 * * * * ?</cron-expression>
+      </cron>
+    </trigger>
+
+  </schedule>
+  
+</job-scheduling-data>
